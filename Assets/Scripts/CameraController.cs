@@ -24,5 +24,8 @@ public class CameraController : MonoBehaviour
         transform.LookAt(target);
     }
 
-    public void RotateCamera()
+    public void RotateCamera(RotationDirection rotationDirection)
+    {
+        if ( )
+    }
 }
