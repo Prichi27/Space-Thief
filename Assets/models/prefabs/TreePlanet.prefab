@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8382468060186869488}
   - component: {fileID: 8382468060186869491}
   - component: {fileID: 8382468060186869490}
+  - component: {fileID: 995942007}
   m_Layer: 0
   m_Name: TreePlanet
   m_TagString: Enemy
@@ -133,8 +134,8 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 1b0a5a745d0ca5f46aa8a20858aeaf92, type: 3}
   m_Controller: {fileID: 9100000, guid: c798e4d63140a8041926b49b2e3ce40a, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -183,6 +184,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharPos: {fileID: 0}
+--- !u!135 &995942007
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537458186792453120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.24
+  m_Center: {x: 0, y: 0.49, z: 0}
 --- !u!1 &729780772425884677
 GameObject:
   m_ObjectHideFlags: 0
