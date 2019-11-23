@@ -4,73 +4,62 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
-    public float runspeed;
-    public float WalkSpeed;
-    public float rotationspeed;
+    Vector3 m_Movement;
+    Quaternion m_Rotation = Quaternion.identity;
+    Animator m_Animator;
+    Rigidbody m_Rigidbody;
+    AudioSource m_AudioSource;
 
-	 private float moveSpeed = 0.3f;
-    public GameObject CharPos;
-    private float Distance;
-
-    Rigidbody rb;
-    CapsuleCollider capCol;
-    Animator WoobieAnim;
-
-
+    public float turnSpeed = 20f;
+    //public FixedJoystick fixedJoystick;
 
     // Start is called before the first frame update
     void Start()
     {
-	 rb = GetComponent<Rigidbody>();
-        capCol = GetComponent<CapsuleCollider>();
-        WoobieAnim = GetComponent<Animator>();
-
-		
-        
+        m_Animator = GetComponent<Animator>();
+        m_Rigidbody = GetComponent<Rigidbody>();
+        m_AudioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-          transform.Translate(0, 0, Input.GetAxis("Vertical") * speed);
+        //float horizontal = fixedJoystick.Horizontal;
+        //float vertical = fixedJoystick.Vertical;
 
-        transform.Rotate(0, Input.GetAxis("Horizontal") * rotationspeed, 0);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-       transform.Translate(0, 0, Input.GetAxis("Horizontal") * speed);
+        m_Movement.Set(horizontal, 0f, vertical);
+        m_Movement.Normalize();
 
-		
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        bool hasHorizontalInput = !Mathf.Approximately(horizontal, 0f);
+        bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
+
+        bool isWalking = hasHorizontalInput || hasVerticalInput;
+
+        m_Animator.SetBool("IsWalking", isWalking);
+
+        if (isWalking)
         {
-            speed = WalkSpeed;
-            WoobieAnim.SetBool("IsWalking", true);
-            WoobieAnim.SetBool("IsIdle", false);
-			
-
-       
+            if (!m_AudioSource.isPlaying)
+            {
+                m_AudioSource.Play();
+            }
         }
-
-        else {
-            WoobieAnim.SetBool("IsWalking", false);
-           WoobieAnim.SetBool("IsIdle", true);
-            speed = 0;
-        }
-
-		
-		 //locate Target's location
-        CharPos = GameObject.Find("Enemy");
-        Distance = this.transform.position.z - CharPos.transform.position.z;
-
-
-      
-        
-        if (Distance < 30f)
+        else
         {
-           speed= moveSpeed;
-
-		               
+            m_AudioSource.Stop();
         }
 
-		
+        Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
+        m_Rotation = Quaternion.LookRotation(desiredForward);
     }
+
+    private void OnAnimatorMove()
+    {
+        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
+        m_Rigidbody.MoveRotation(m_Rotation);
+        Debug.Log(m_Animator.deltaPosition);
+    }
+
 }
