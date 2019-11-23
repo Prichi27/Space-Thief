@@ -745,7 +745,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 1b0a5a745d0ca5f46aa8a20858aeaf92, type: 3}
+  - {fileID: 2100000, guid: 3c1be9a02c646a24a99fd63b68b343ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1081,7 +1081,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3775379068902227027, guid: 1b0a5a745d0ca5f46aa8a20858aeaf92, type: 3}
+  - {fileID: 2100000, guid: 8fd16aac60625b740b64edff99bf5b1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1322,11 +1322,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 114748046298079449}
     m_Modifications:
-    - target: {fileID: 838435887419716205, guid: 43e39924c8692cb44999106683523c75,
-        type: 3}
-      propertyPath: m_Name
-      value: BUILDING_Observatory (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 3396517484235569107, guid: 43e39924c8692cb44999106683523c75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1396,6 +1391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.64307994
+      objectReference: {fileID: 0}
+    - target: {fileID: 838435887419716205, guid: 43e39924c8692cb44999106683523c75,
+        type: 3}
+      propertyPath: m_Name
+      value: BUILDING_Observatory (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e39924c8692cb44999106683523c75, type: 3}
@@ -1982,11 +1982,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 114748046298079449}
     m_Modifications:
-    - target: {fileID: 838435887419716205, guid: 43e39924c8692cb44999106683523c75,
-        type: 3}
-      propertyPath: m_Name
-      value: BUILDING_Observatory
-      objectReference: {fileID: 0}
     - target: {fileID: 3396517484235569107, guid: 43e39924c8692cb44999106683523c75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2041,6 +2036,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.703
+      objectReference: {fileID: 0}
+    - target: {fileID: 838435887419716205, guid: 43e39924c8692cb44999106683523c75,
+        type: 3}
+      propertyPath: m_Name
+      value: BUILDING_Observatory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e39924c8692cb44999106683523c75, type: 3}

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: -53
+    value: -42
   intensityX:
     overrideState: 1
     value: 1
@@ -70,10 +70,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 3.42
+    value: 2.19
   threshold:
     overrideState: 1
-    value: 0.58
+    value: 0.87
   softKnee:
     overrideState: 0
     value: 0.5
@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1476,7 +1476,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.419
+    value: 0.315
   fastMode:
     overrideState: 1
     value: 0

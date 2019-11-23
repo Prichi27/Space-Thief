@@ -845,7 +845,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3775379068902227027, guid: 1b0a5a745d0ca5f46aa8a20858aeaf92, type: 3}
+  - {fileID: 2100000, guid: 8fd16aac60625b740b64edff99bf5b1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1009,7 +1009,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 1b0a5a745d0ca5f46aa8a20858aeaf92, type: 3}
+  - {fileID: 2100000, guid: 3c1be9a02c646a24a99fd63b68b343ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1902,11 +1902,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 471787364199880559}
     m_Modifications:
-    - target: {fileID: 612304723300002803, guid: 549c7507f9d3b4946a05003f92dc17dd,
-        type: 3}
-      propertyPath: m_Name
-      value: Rock.000
-      objectReference: {fileID: 0}
     - target: {fileID: 2607670930084784192, guid: 549c7507f9d3b4946a05003f92dc17dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1961,6 +1956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 31.838001
+      objectReference: {fileID: 0}
+    - target: {fileID: 612304723300002803, guid: 549c7507f9d3b4946a05003f92dc17dd,
+        type: 3}
+      propertyPath: m_Name
+      value: Rock.000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 549c7507f9d3b4946a05003f92dc17dd, type: 3}
@@ -2067,11 +2067,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 471787364199880559}
     m_Modifications:
-    - target: {fileID: 2783676832406849941, guid: 6423dcec67265a34e860ca07dc6998ce,
-        type: 3}
-      propertyPath: m_Name
-      value: Rock.000 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1373465413731239641, guid: 6423dcec67265a34e860ca07dc6998ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2141,6 +2136,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.435639
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783676832406849941, guid: 6423dcec67265a34e860ca07dc6998ce,
+        type: 3}
+      propertyPath: m_Name
+      value: Rock.000 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423dcec67265a34e860ca07dc6998ce, type: 3}
