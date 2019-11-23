@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 8382468060186869491}
   - component: {fileID: 8382468060186869490}
   m_Layer: 0
-  m_Name: Enemy01
+  m_Name: TreePlanet
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
