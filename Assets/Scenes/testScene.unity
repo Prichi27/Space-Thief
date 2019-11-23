@@ -148,6 +148,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &38708222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38708220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 2, z: 20}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &546835762
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +816,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 20
+  walkSpeed: 10
+  runSpeed: 20
 --- !u!135 &1678221515
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1104,7 +1119,13 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 5.26
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8382468060186869490, guid: e8376ed18e944ee42a0a587cccd5aeb8,
+        type: 3}
+      propertyPath: distanceFactor
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 995942007, guid: e8376ed18e944ee42a0a587cccd5aeb8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e8376ed18e944ee42a0a587cccd5aeb8, type: 3}
 --- !u!1 &2133493091
 GameObject:

@@ -11,7 +11,13 @@ public class PlayerMovement : MonoBehaviour
     //AudioSource m_AudioSource;
 
     public float turnSpeed = 20f;
+    public float walkSpeed = 10f;
+    public float runSpeed = 20f;
+
+    private float _moveSpeed;
     private bool playerCanSteal;
+    private bool canRun;
+
 
     //public FixedJoystick fixedJoystick;
 
@@ -37,9 +43,13 @@ public class PlayerMovement : MonoBehaviour
         bool hasHorizontalInput = !Mathf.Approximately(horizontal, 0f);
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
 
-        bool isWalking = hasHorizontalInput || hasVerticalInput;
+
+
+        bool isWalking = (hasHorizontalInput || hasVerticalInput) && !canRun;
+        bool isRunning = (hasHorizontalInput || hasVerticalInput) && canRun;
 
         m_Animator.SetBool("IsWalking", isWalking);
+        m_Animator.SetBool("IsRunning", isRunning);
 
         //if (isWalking)
         //{
@@ -59,7 +69,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * 20 * Time.deltaTime);
+        if (canRun)
+        {
+            _moveSpeed = 20f;
+        }
+
+        else
+        {
+            _moveSpeed = 10f;
+        }
+
+        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * _moveSpeed * Time.deltaTime);
         m_Rigidbody.MoveRotation(m_Rotation);
     }
 
@@ -90,5 +110,12 @@ public class PlayerMovement : MonoBehaviour
             playerCanSteal = false;
         }
     }
+
+    public void CanPlayerRun(bool value)
+    {
+        canRun = value;
+    }
+
+
 
 }
