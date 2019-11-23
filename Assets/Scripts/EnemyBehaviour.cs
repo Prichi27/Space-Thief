@@ -1,46 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    // Variables set via inspector
+    [SerializeField]
+    private float _moveSpeed = 10.0f;
 
-    Rigidbody rb;
-    CapsuleCollider capCol;
-    Animator EnemyAnim;
- private float moveSpeed = 10.0f;
-    public GameObject CharPos;
-    private float Distance;
+    Rigidbody _rb;
+    Animator _enemyAnim;
+
+    private bool shouldRun;
+    private bool _isRunning;
+    private Vector3 runningDirection;
+    private NavMeshAgent _agent;
 
     // Start is called before the first frame update
     void Start()
     {
-         rb = GetComponent<Rigidbody>();
-        capCol = GetComponent<CapsuleCollider>();
-        EnemyAnim = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody>();
+        _enemyAnim = GetComponent<Animator>();
+        _agent = GetComponent<NavMeshAgent>();
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
-        
 
-		 //locate woobie's location
-        CharPos = GameObject.Find("Woobie");
-        Distance = this.transform.position.z - CharPos.transform.position.z;
-
-
-      
-        
-        if (Distance < 30f)
+        if (!_agent.pathPending && _isRunning)
         {
-            EnemyAnim.SetTrigger("IsRunning");
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            if (_agent.remainingDistance <= _agent.stoppingDistance)
+            {
+                if (!_agent.hasPath || _agent.velocity.sqrMagnitude == 0f)
+                {
+                    _enemyAnim.SetBool("IsRunning", false);
+                }
+            }
         }
 
-		
     }
-        
-   
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            _enemyAnim.SetBool("IsRunning", true);
+            shouldRun = true;
+            _isRunning = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(shouldRun)
+        {
+            Vector3 dirToPlayer = transform.position - other.transform.position;
+            Vector3 newPos = transform.position + dirToPlayer;
+            _agent.SetDestination(newPos);
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            shouldRun = false;
+        }
+    }
+
 }

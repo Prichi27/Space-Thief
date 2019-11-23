@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     //AudioSource m_AudioSource;
 
     public float turnSpeed = 20f;
+    private bool playerCanSteal;
+
     //public FixedJoystick fixedJoystick;
 
     // Start is called before the first frame update
@@ -57,9 +59,36 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
+        m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * 20 * Time.deltaTime);
         m_Rigidbody.MoveRotation(m_Rotation);
-        Debug.Log(m_Animator.deltaPosition);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            playerCanSteal = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Enemy") && playerCanSteal )
+        {
+            if(Input.GetKeyUp(KeyCode.E))
+            {
+                // Stealing occurs here
+                Debug.Log("yeah");
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            playerCanSteal = false;
+        }
     }
 
 }
