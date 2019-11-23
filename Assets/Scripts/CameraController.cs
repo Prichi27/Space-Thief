@@ -26,6 +26,14 @@ public class CameraController : MonoBehaviour
 
     public void RotateCamera(RotationDirection rotationDirection)
     {
-        if ( )
+        if ( rotationDirection == RotationDirection.Left )
+        {
+            // Turn left
+        }
+
+        else
+        {
+            // Turn right 
+        }
     }
 }

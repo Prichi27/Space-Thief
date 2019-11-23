@@ -51,7 +51,7 @@ public class CharacterMovement : MonoBehaviour
 
 
         //locate Target's location
-        CharPos = GameObject.Find("Enemy");
+        //CharPos = GameObject.Find("Enemy");
         Distance = this.transform.position.z - CharPos.transform.position.z;
 
         if (Distance < 30f)
