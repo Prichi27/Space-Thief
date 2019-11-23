@@ -1327,7 +1327,7 @@ GameObject:
   - component: {fileID: 688924308370318168}
   - component: {fileID: 688924308370318171}
   - component: {fileID: 688924308370318170}
-  - component: {fileID: 688924308370318175}
+  - component: {fileID: 4061992587524947055}
   m_Layer: 0
   m_Name: Woobie
   m_TagString: Player
@@ -1418,7 +1418,7 @@ CapsuleCollider:
   m_Height: 2.66546
   m_Direction: 1
   m_Center: {x: 0, y: 1.2843802, z: 0}
---- !u!114 &688924308370318175
+--- !u!114 &4061992587524947055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1427,14 +1427,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8840108757834589274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96f8f0b2dc368b94eaa9beffbe291c0c, type: 3}
+  m_Script: {fileID: 11500000, guid: ae4943195dec03947bab42e08413a5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  runspeed: 0
-  WalkSpeed: 0.1
-  rotationspeed: 3
-  CharPos: {fileID: 0}
+  turnSpeed: 20
 --- !u!1 &8990586972464421103
 GameObject:
   m_ObjectHideFlags: 0
