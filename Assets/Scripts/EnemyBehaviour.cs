@@ -7,7 +7,9 @@ public class EnemyBehaviour : MonoBehaviour
 {
     // Variables set via inspector
     [SerializeField]
-    private float _moveSpeed = 10.0f;
+    [Tooltip("Distance fleed by enemy!!!")]
+    [Range(0.1f,5)]
+    private float distanceFactor;
 
     Rigidbody _rb;
     Animator _enemyAnim;
@@ -49,16 +51,22 @@ public class EnemyBehaviour : MonoBehaviour
             _enemyAnim.SetBool("IsRunning", true);
             shouldRun = true;
             _isRunning = true;
+
+            // Set Player Animation to run
+            PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+            playerMovement.CanPlayerRun(true);
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(shouldRun)
+        if(shouldRun && other.tag.Equals("Player"))
         {
             Vector3 dirToPlayer = transform.position - other.transform.position;
-            Vector3 newPos = transform.position + dirToPlayer;
+            Vector3 newPos = transform.position + dirToPlayer * distanceFactor;
             _agent.SetDestination(newPos);
+            PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+            playerMovement.CanPlayerRun(true);
         }
 
     }
@@ -68,6 +76,10 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             shouldRun = false;
+
+            // Set Player Animation to walk again
+            PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+            playerMovement.CanPlayerRun(false);
         }
     }
 
