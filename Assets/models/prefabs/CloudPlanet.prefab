@@ -1312,6 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFactor: 3
+  stolenObject: {fileID: 2852430708665890217}
 --- !u!65 &7783060541584870671
 BoxCollider:
   m_ObjectHideFlags: 0

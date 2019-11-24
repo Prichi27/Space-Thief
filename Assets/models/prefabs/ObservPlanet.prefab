@@ -648,6 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFactor: 3
+  stolenObject: {fileID: 5704347915470636341}
 --- !u!65 &4466059660748666366
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1863,6 +1864,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1913705948}
     m_Modifications:
+    - target: {fileID: 838435887419716205, guid: 43e39924c8692cb44999106683523c75,
+        type: 3}
+      propertyPath: m_Name
+      value: BUILDING_Observatory
+      objectReference: {fileID: 0}
     - target: {fileID: 3396517484235569107, guid: 43e39924c8692cb44999106683523c75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1933,13 +1939,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.3825
       objectReference: {fileID: 0}
-    - target: {fileID: 838435887419716205, guid: 43e39924c8692cb44999106683523c75,
-        type: 3}
-      propertyPath: m_Name
-      value: BUILDING_Observatory
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43e39924c8692cb44999106683523c75, type: 3}
+--- !u!1 &5704347915470636341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 838435887419716205, guid: 43e39924c8692cb44999106683523c75,
+    type: 3}
+  m_PrefabInstance: {fileID: 4939132450795779928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7757881794406039691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3396517484235569107, guid: 43e39924c8692cb44999106683523c75,
@@ -2283,6 +2290,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1913705948}
     m_Modifications:
+    - target: {fileID: 612304723300002803, guid: 549c7507f9d3b4946a05003f92dc17dd,
+        type: 3}
+      propertyPath: m_Name
+      value: Rock.000
+      objectReference: {fileID: 0}
     - target: {fileID: 2607670930084784192, guid: 549c7507f9d3b4946a05003f92dc17dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2337,11 +2349,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 612304723300002803, guid: 549c7507f9d3b4946a05003f92dc17dd,
-        type: 3}
-      propertyPath: m_Name
-      value: Rock.000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 549c7507f9d3b4946a05003f92dc17dd, type: 3}
@@ -2433,6 +2440,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1913705948}
     m_Modifications:
+    - target: {fileID: 2783676832406849941, guid: 6423dcec67265a34e860ca07dc6998ce,
+        type: 3}
+      propertyPath: m_Name
+      value: Rock.000 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 1373465413731239641, guid: 6423dcec67265a34e860ca07dc6998ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2502,11 +2514,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.435639
-      objectReference: {fileID: 0}
-    - target: {fileID: 2783676832406849941, guid: 6423dcec67265a34e860ca07dc6998ce,
-        type: 3}
-      propertyPath: m_Name
-      value: Rock.000 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6423dcec67265a34e860ca07dc6998ce, type: 3}

@@ -11,6 +11,9 @@ public class EnemyBehaviour : MonoBehaviour
     [Range(0.1f,5)]
     private float distanceFactor;
 
+    public GameObject stolenObject;
+    private bool isEnemyActive;
+
     Rigidbody _rb;
     Animator _enemyAnim;
 
@@ -25,7 +28,7 @@ public class EnemyBehaviour : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _enemyAnim = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-
+        isEnemyActive = true;
     }
 
     private void LateUpdate()
@@ -65,8 +68,8 @@ public class EnemyBehaviour : MonoBehaviour
             Vector3 dirToPlayer = transform.position - other.transform.position;
             Vector3 newPos = transform.position + dirToPlayer * distanceFactor;
             _agent.SetDestination(newPos);
-            PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
-            playerMovement.CanPlayerRun(true);
+            //PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+            //playerMovement.CanPlayerRun(true);
         }
 
     }
@@ -80,6 +83,14 @@ public class EnemyBehaviour : MonoBehaviour
             // Set Player Animation to walk again
             PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
             playerMovement.CanPlayerRun(false);
+            
+            if (!stolenObject.activeSelf)
+            {
+                _agent.isStopped = true;
+                _enemyAnim.SetTrigger("Dead");
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+
         }
     }
 

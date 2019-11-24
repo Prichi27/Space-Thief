@@ -41,8 +41,8 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject UIClouds;
 	public GameObject UIHouse;
 
-
-
+    // Counter
+    private float _counter;
 
     //public FixedJoystick fixedJoystick;
 
@@ -73,6 +73,13 @@ public class PlayerMovement : MonoBehaviour
 		UIObs.SetActive(true);
 		UIHouse.SetActive(true);
 
+        // Set Counter to zero
+
+    }
+
+    private void Update()
+    {
+        MoveToCinematic();
     }
 
     void FixedUpdate()
@@ -146,54 +153,62 @@ public class PlayerMovement : MonoBehaviour
 		//display E 
             if(Input.GetKeyUp(KeyCode.E))
             {
-
-			
-		
-
                 //Stealing occurs here, 5 if statements to differentiate between enemies
 
-				 if  (other.gameObject.name == "BuildingPlanet") 
-				 {
-				    Debug.Log("Build");
-					CrownBuilding.SetActive(true);
-					EnemyBuilding.SetActive(false);
-					UIBuilding.SetActive(false);
-					
-			
-				 }
-				  if  (other.gameObject.name == "ObservPlanet") 
-				 {
+			    if  (other.gameObject.name == "BuildingPlanet" && !CrownBuilding.activeSelf) 
+			    {
+			        Debug.Log("Build");
+			        CrownBuilding.SetActive(true);
+			        EnemyBuilding.SetActive(false);
+			        UIBuilding.SetActive(false);
+                    _counter++;
+                    playerCanSteal = false;
+
+                }
+
+                if  (other.gameObject.name == "ObservPlanet" && !CrownObs.activeSelf) 
+				{
 				    Debug.Log("Obs");
 					CrownObs.SetActive(true);
 					EnemyObs.SetActive(false);
 					UIObs.SetActive(false);
-					
-				 }
-				  if  (other.gameObject.name == "TreePlanet") 
-				 {
+                    _counter++;
+                    playerCanSteal = false;
+
+                }
+
+
+                if  (other.gameObject.name == "TreePlanet" && !CrownTrees.activeSelf) 
+				{
 				    Debug.Log("Tree");
-					CrownTrees.SetActive(true);
-					EnemyTrees.SetActive(false);
-					UITrees.SetActive(false);
-					
-				 }
-				  if  (other.gameObject.name == "HousePlanet") 
-				 {
+				    CrownTrees.SetActive(true);
+				    EnemyTrees.SetActive(false);
+				    UITrees.SetActive(false);
+                    _counter++;
+                    playerCanSteal = false;
+                }
+
+                if  (other.gameObject.name == "HousePlanet" && !CrownHouse.activeSelf) 
+				{
 				    Debug.Log("house");
-					CrownHouse.SetActive(true);
-					EnemyHouse.SetActive(false);
-					UIHouse.SetActive(false);
-					
-				 }
-				  if  (other.gameObject.name == "CloudPlanet") 
-				 {
+				    CrownHouse.SetActive(true);
+				    EnemyHouse.SetActive(false);
+				    UIHouse.SetActive(false);
+                    _counter++;
+                    playerCanSteal = false;
+                }
+
+                if  (other.gameObject.name == "CloudPlanet" && !CrownClouds.activeSelf) 
+				{
 				    Debug.Log("cloud");
 					CrownClouds.SetActive(true);
 					EnemyClouds.SetActive(false);
 					UIClouds.SetActive(false);
-					
-				 } 
-				 			GrabCanvas.SetActive(false);
+                    _counter++;
+                    playerCanSteal = false;
+                }
+
+                GrabCanvas.SetActive(false);
 
 			
               //  Debug.Log("yeah");
@@ -214,6 +229,14 @@ public class PlayerMovement : MonoBehaviour
     public void CanPlayerRun(bool value)
     {
         canRun = value;
+    }
+
+    private void MoveToCinematic()
+    {
+        if (_counter == 5)
+        {
+            Debug.Log("Won");
+        }
     }
 
 
