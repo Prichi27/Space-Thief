@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     // Counter
     private float _counter;
 
-    //public FixedJoystick fixedJoystick;
+    public FixedJoystick fixedJoystick;
 
     // Start is called before the first frame update
     void Start()
@@ -85,7 +85,6 @@ public class PlayerMovement : MonoBehaviour
 		UIHouse.SetActive(true);
 
         // Set Counter to zero
-
     }
 
     private void Update()
@@ -95,11 +94,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //float horizontal = fixedJoystick.Horizontal;
-        //float vertical = fixedJoystick.Vertical;
+        float horizontal = fixedJoystick.Horizontal;
+        float vertical = fixedJoystick.Vertical;
 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        //float horizontal = Input.GetAxis("Horizontal");
+        //float vertical = Input.GetAxis("Vertical");
 
         m_Movement.Set(horizontal, 0f, vertical);
         m_Movement.Normalize();
@@ -143,6 +142,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
+
+        //isButtonClicked = false;
     }
 
     private void OnAnimatorMove()
@@ -176,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 		GrabCanvas.SetActive(true);
 
 		//display E 
-            if(Input.GetKeyUp(KeyCode.E))
+            if(Input.touchCount>1)
             {
                 //Stealing occurs here, 5 if statements to differentiate between enemies
 
@@ -243,8 +244,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 GrabCanvas.SetActive(false);
-
-			
+		
               //  Debug.Log("yeah");
             }
         }
@@ -275,7 +275,6 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
-
 
 
 }
