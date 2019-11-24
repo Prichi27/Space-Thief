@@ -9081,6 +9081,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 328000944112327626, guid: 8f3c88020a4674440b4e863c7f7864ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5510731
+      objectReference: {fileID: 0}
+    - target: {fileID: 328000944112327626, guid: 8f3c88020a4674440b4e863c7f7864ea,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 328000944112327630, guid: 8f3c88020a4674440b4e863c7f7864ea,
         type: 3}
       propertyPath: GOCanvas
@@ -10835,11 +10845,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6269161380805900458, guid: a3fa6e14b3d8c08449eaa33895ec5a33,
-        type: 3}
-      propertyPath: m_Name
-      value: CloudPlanet
-      objectReference: {fileID: 0}
     - target: {fileID: 7015430468965141177, guid: a3fa6e14b3d8c08449eaa33895ec5a33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10894,6 +10899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269161380805900458, guid: a3fa6e14b3d8c08449eaa33895ec5a33,
+        type: 3}
+      propertyPath: m_Name
+      value: CloudPlanet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3fa6e14b3d8c08449eaa33895ec5a33, type: 3}
