@@ -48,6 +48,9 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource walkSound;
     public AudioSource miniminiSound;
     public AudioSource runSound;
+
+    // Level Changer
+    public CinematicLoader cinematicLoader;
     
     // Counter
     private float _counter;
@@ -268,6 +271,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Won");
             StickerUI.SetActive(false);
+            cinematicLoader.FadeToLevel(2);
+
         }
     }
 
