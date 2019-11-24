@@ -18,6 +18,31 @@ public class PlayerMovement : MonoBehaviour
     private bool playerCanSteal;
     private bool canRun;
 
+	public GameObject GrabCanvas;
+
+	//crownobjects
+	public GameObject CrownTrees;
+	public GameObject CrownBuilding;
+	public GameObject CrownObs;
+	public GameObject CrownClouds;
+	public GameObject CrownHouse;
+
+	//Enemyobjects
+	public GameObject EnemyTrees;
+	public GameObject EnemyBuilding;
+	public GameObject EnemyObs;
+	public GameObject EnemyClouds;
+	public GameObject EnemyHouse;
+
+	//UIobjects
+	public GameObject UITrees;
+	public GameObject UIBuilding;
+	public GameObject UIObs;
+	public GameObject UIClouds;
+	public GameObject UIHouse;
+
+
+
 
     //public FixedJoystick fixedJoystick;
 
@@ -27,6 +52,27 @@ public class PlayerMovement : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         //m_AudioSource = GetComponent<AudioSource>();
+
+		GrabCanvas.SetActive(false);
+
+		CrownTrees.SetActive(false);
+		CrownBuilding.SetActive(false);
+		CrownClouds.SetActive(false);
+		CrownObs.SetActive(false);
+		CrownHouse.SetActive(false);
+
+		EnemyTrees.SetActive(true);
+		EnemyBuilding.SetActive(true);
+		EnemyClouds.SetActive(true);
+		EnemyObs.SetActive(true);
+		EnemyHouse.SetActive(true);
+
+		UITrees.SetActive(true);
+		UIBuilding.SetActive(true);
+	    UIClouds.SetActive(true);
+		UIObs.SetActive(true);
+		UIHouse.SetActive(true);
+
     }
 
     void FixedUpdate()
@@ -95,10 +141,62 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Enemy") && playerCanSteal )
         {
+		GrabCanvas.SetActive(true);
+
+		//display E 
             if(Input.GetKeyUp(KeyCode.E))
             {
-                // Stealing occurs here
-                Debug.Log("yeah");
+
+			
+		
+
+                //Stealing occurs here, 5 if statements to differentiate between enemies
+
+				 if  (other.gameObject.name == "BuildingPlanet") 
+				 {
+				    Debug.Log("Build");
+					CrownBuilding.SetActive(true);
+					EnemyBuilding.SetActive(false);
+					UIBuilding.SetActive(false);
+					
+			
+				 }
+				  if  (other.gameObject.name == "ObservPlanet") 
+				 {
+				    Debug.Log("Obs");
+					CrownObs.SetActive(true);
+					EnemyObs.SetActive(false);
+					UIObs.SetActive(false);
+					
+				 }
+				  if  (other.gameObject.name == "TreePlanet") 
+				 {
+				    Debug.Log("Tree");
+					CrownTrees.SetActive(true);
+					EnemyTrees.SetActive(false);
+					UITrees.SetActive(false);
+					
+				 }
+				  if  (other.gameObject.name == "HousePlanet") 
+				 {
+				    Debug.Log("house");
+					CrownHouse.SetActive(true);
+					EnemyHouse.SetActive(false);
+					UIHouse.SetActive(false);
+					
+				 }
+				  if  (other.gameObject.name == "CloudPlanet") 
+				 {
+				    Debug.Log("cloud");
+					CrownClouds.SetActive(true);
+					EnemyClouds.SetActive(false);
+					UIClouds.SetActive(false);
+					
+				 } 
+				 			GrabCanvas.SetActive(false);
+
+			
+              //  Debug.Log("yeah");
             }
         }
     }
@@ -108,6 +206,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             playerCanSteal = false;
+			GrabCanvas.SetActive(false);
+
         }
     }
 
