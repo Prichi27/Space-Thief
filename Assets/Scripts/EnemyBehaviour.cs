@@ -22,6 +22,10 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector3 runningDirection;
     private NavMeshAgent _agent;
 
+    // Audio
+    private AudioSource _audioSource;
+    private bool _isAudioPlaying;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,8 @@ public class EnemyBehaviour : MonoBehaviour
         _enemyAnim = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         isEnemyActive = true;
+        _audioSource = GetComponent<AudioSource>();
+        _isAudioPlaying = false;
     }
 
     private void LateUpdate()
@@ -58,6 +64,11 @@ public class EnemyBehaviour : MonoBehaviour
             // Set Player Animation to run
             PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
             playerMovement.CanPlayerRun(true);
+
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.Play();
+            }
         }
     }
 
@@ -78,6 +89,11 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
+            if (_audioSource.isPlaying)
+            {
+                _audioSource.Stop();
+            }
+
             shouldRun = false;
 
             // Set Player Animation to walk again

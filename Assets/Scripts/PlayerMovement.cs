@@ -41,6 +41,14 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject UIClouds;
 	public GameObject UIHouse;
 
+    public GameObject StickerUI;
+
+    // Audio
+    public AudioSource popSound;
+    public AudioSource walkSound;
+    public AudioSource miniminiSound;
+    public AudioSource runSound;
+    
     // Counter
     private float _counter;
 
@@ -104,17 +112,31 @@ public class PlayerMovement : MonoBehaviour
         m_Animator.SetBool("IsWalking", isWalking);
         m_Animator.SetBool("IsRunning", isRunning);
 
-        //if (isWalking)
-        //{
-        //    if (!m_AudioSource.isPlaying)
-        //    {
-        //        m_AudioSource.Play();
-        //    }
-        //}
-        //else
-        //{
-        //    m_AudioSource.Stop();
-        //}
+        if (isWalking)
+        {
+            if (!walkSound.isPlaying)
+            {
+                walkSound.Play();
+            }
+        }
+        else
+        {
+            walkSound.Stop();
+        }
+
+        if (isRunning)
+        {
+            if (!runSound.isPlaying)
+            {
+                runSound.Play();
+                miniminiSound.Play();
+            }
+        }
+        else
+        {
+            runSound.Stop();
+            miniminiSound.Stop();
+        }
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
@@ -163,6 +185,7 @@ public class PlayerMovement : MonoBehaviour
 			        UIBuilding.SetActive(false);
                     _counter++;
                     playerCanSteal = false;
+                    popSound.Play();
 
                 }
 
@@ -174,6 +197,8 @@ public class PlayerMovement : MonoBehaviour
 					UIObs.SetActive(false);
                     _counter++;
                     playerCanSteal = false;
+                    popSound.Play();
+
 
                 }
 
@@ -186,6 +211,8 @@ public class PlayerMovement : MonoBehaviour
 				    UITrees.SetActive(false);
                     _counter++;
                     playerCanSteal = false;
+                    popSound.Play();
+
                 }
 
                 if  (other.gameObject.name == "HousePlanet" && !CrownHouse.activeSelf) 
@@ -196,6 +223,8 @@ public class PlayerMovement : MonoBehaviour
 				    UIHouse.SetActive(false);
                     _counter++;
                     playerCanSteal = false;
+                    popSound.Play();
+
                 }
 
                 if  (other.gameObject.name == "CloudPlanet" && !CrownClouds.activeSelf) 
@@ -206,6 +235,8 @@ public class PlayerMovement : MonoBehaviour
 					UIClouds.SetActive(false);
                     _counter++;
                     playerCanSteal = false;
+                    popSound.Play();
+
                 }
 
                 GrabCanvas.SetActive(false);
@@ -236,6 +267,7 @@ public class PlayerMovement : MonoBehaviour
         if (_counter == 5)
         {
             Debug.Log("Won");
+            StickerUI.SetActive(false);
         }
     }
 
