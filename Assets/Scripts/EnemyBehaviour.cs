@@ -12,7 +12,6 @@ public class EnemyBehaviour : MonoBehaviour
     private float distanceFactor;
 
     public GameObject stolenObject;
-    private bool isEnemyActive;
 
     Rigidbody _rb;
     Animator _enemyAnim;
@@ -32,7 +31,6 @@ public class EnemyBehaviour : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _enemyAnim = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-        isEnemyActive = true;
         _audioSource = GetComponent<AudioSource>();
         _isAudioPlaying = false;
     }

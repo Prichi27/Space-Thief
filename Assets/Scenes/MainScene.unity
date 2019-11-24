@@ -9170,6 +9170,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984559248}
   m_CullTransparentMesh: 0
+--- !u!1 &2032938895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 6d856d52c653eca48ba725a73bc45f65,
+    type: 3}
+  m_PrefabInstance: {fileID: 1233834904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2032938896
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032938895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 8792586484180348971, guid: 6d856d52c653eca48ba725a73bc45f65, type: 3}
+--- !u!54 &2032938900
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032938895}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2054651189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 726451951960942391, guid: 8936ccb6f9f29784985c25f02204791b,
@@ -10151,6 +10187,11 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 688924308370318168, guid: 4f89e97c90ee6ab47a6f45d94c00729c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 688924309068023658, guid: 4f89e97c90ee6ab47a6f45d94c00729c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10215,6 +10256,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Volume
       value: 0.505
+      objectReference: {fileID: 0}
+    - target: {fileID: 2485769348167154483, guid: 4f89e97c90ee6ab47a6f45d94c00729c,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f89e97c90ee6ab47a6f45d94c00729c, type: 3}
@@ -10368,6 +10414,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6269161380805900458, guid: a3fa6e14b3d8c08449eaa33895ec5a33,
+        type: 3}
+      propertyPath: m_Name
+      value: CloudPlanet
+      objectReference: {fileID: 0}
     - target: {fileID: 7015430468965141177, guid: a3fa6e14b3d8c08449eaa33895ec5a33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10422,11 +10473,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6269161380805900458, guid: a3fa6e14b3d8c08449eaa33895ec5a33,
-        type: 3}
-      propertyPath: m_Name
-      value: CloudPlanet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3fa6e14b3d8c08449eaa33895ec5a33, type: 3}
