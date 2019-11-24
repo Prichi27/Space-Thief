@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlackHole
+  m_Shader: {fileID: -6465566751694194690, guid: 947df3388191c264cb44ac5b977895e9,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_23D1CDD: 0.05
+    - Vector1_8A513581: 2.44
+    - Vector1_A87A1153: 3
+    - Vector1_AD6B17AA: 0.05
+    - Vector1_BC79B75D: 0.7
+    - Vector1_CD4C7D0F: 0.7
+    m_Colors: []
